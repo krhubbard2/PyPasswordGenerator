@@ -70,13 +70,17 @@ class Window(QMainWindow):
         self.generateButton = QPushButton('Generate')
         self.generateButton.clicked.connect(lambda: self.setLineEditText(random_password(self.lowercaseCheckBox.isChecked(), self.uppercaseCheckBox.isChecked(), self.symbolCheckBox.isChecked(), self.lengthSlider.value())))
 
+        # Copy Button
+        self.copyButton = QPushButton('Copy')
+
         # Layout
         self.layout.addWidget(self.lineEdit, 0, 0, 1, 3)
-        self.layout.addWidget(self.generateButton, 0, 3)
-        self.layout.addWidget(self.lowercaseCheckBox, 1, 0)
-        self.layout.addWidget(self.uppercaseCheckBox, 1, 1)
-        self.layout.addWidget(self.symbolCheckBox, 1, 2)
-        self.layout.addLayout(self.subLayout, 1, 3)
+        self.layout.addWidget(self.generateButton, 1, 0, 1, 4)
+        self.layout.addWidget(self.copyButton, 0, 3)
+        self.layout.addWidget(self.lowercaseCheckBox, 2, 0)
+        self.layout.addWidget(self.uppercaseCheckBox, 2, 1)
+        self.layout.addWidget(self.symbolCheckBox, 2, 2)
+        self.layout.addLayout(self.subLayout, 2, 3)
 
     # Update slider label value
     def updateLabel(self, value):
