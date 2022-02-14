@@ -15,7 +15,7 @@ def random_password(lower, upper, symbol, length):
     if (upper == True):
         characters += list(string.ascii_uppercase)
     if (symbol == True):
-        characters += list("!@#$%^&*()")
+        characters += list("~`! @#$%^&*()_-+={[}]|\:;\"'<,>.?/")
 
     # Shuffle all characters
     random.shuffle(characters)

@@ -49,7 +49,7 @@ class Window(QMainWindow):
         self.lowercaseCheckBox.setChecked(True)
         self.uppercaseCheckBox = QCheckBox('Uppercase (ABC)')
         self.uppercaseCheckBox.setChecked(True)
-        self.symbolCheckBox = QCheckBox('Symbols (!@#$%^&*(){}')
+        self.symbolCheckBox = QCheckBox('Symbols')
         self.symbolCheckBox.setChecked(True)
 
         # Length slider
