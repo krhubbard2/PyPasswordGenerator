@@ -20,9 +20,3 @@ Set what limitations you want on your password (lowercase, uppercase, symbols) a
 Automatically copy password to clipboard.
 ### Force selection
 Users must have at least one checkbox selected (can't generate password of 0 length)
-
-## Future implementations
-### Gaurantee at least one symbol, uppercase, or lowercase letter (depending on selection)
-Currently it is possible for a password to be generated without the selected options, if length is filled with other selected options.
-### Increase symbol reaccurance
-Currently password is generated from 10 symbols -- being that there is 26 (52 if including uppercase) letters, there is much higher probability of getting all letters
