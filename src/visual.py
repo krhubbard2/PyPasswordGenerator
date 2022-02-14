@@ -9,6 +9,7 @@
 
 from .generate import random_password
 from PyQt5 import QtWidgets
+from PyQt5.Qt import QApplication, QClipboard
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import (
     QMainWindow,
@@ -72,6 +73,8 @@ class Window(QMainWindow):
 
         # Copy Button
         self.copyButton = QPushButton('Copy')
+        self.cb = QApplication.clipboard()
+        self.copyButton.clicked.connect(lambda: self.cb.setText(self.lineEdit.text()))
 
         # Layout
         self.layout.addWidget(self.lineEdit, 0, 0, 1, 3)
