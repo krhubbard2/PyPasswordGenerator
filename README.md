@@ -16,11 +16,10 @@ python3 pypasswordgenerator.py
 
 ## Usage
 Set what limitations you want on your password (lowercase, uppercase, symbols) and set desired password length. Then click generate.
-
-
-## Future implementations
 ### Copy Button
 Automatically copy password to clipboard.
+
+## Future implementations
 ### Gaurantee at least one symbol, uppercase, or lowercase letter (depending on selection)
 Currently it is possible for a password to be generated without the selected options, if length is filled with other selected options.
 ### Increase symbol reaccurance
