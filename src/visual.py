@@ -21,6 +21,7 @@ from PyQt5.QtWidgets import (
     QSlider,
     QLabel,
     QVBoxLayout,
+    QMessageBox,
 )
 
 # Main Window
@@ -55,6 +56,7 @@ class Window(QMainWindow):
         self.lengthSlider = QSlider(Qt.Horizontal)
         self.lengthSlider.setMinimum(8)
         self.lengthSlider.setMaximum(24)
+        self.lengthSlider.setValue(16)
         self.lengthSlider.valueChanged.connect(self.updateLabel)
         value = self.lengthSlider.value()
 
@@ -69,12 +71,17 @@ class Window(QMainWindow):
 
         # Generate button
         self.generateButton = QPushButton('Generate')
-        self.generateButton.clicked.connect(lambda: self.setLineEditText(random_password(self.lowercaseCheckBox.isChecked(), self.uppercaseCheckBox.isChecked(), self.symbolCheckBox.isChecked(), self.lengthSlider.value())))
+        self.generateButton.clicked.connect(lambda: self.setLineEditText())
 
         # Copy Button
         self.copyButton = QPushButton('Copy')
         self.cb = QApplication.clipboard()
         self.copyButton.clicked.connect(lambda: self.cb.setText(self.lineEdit.text()))
+
+        # Error Popup Box
+        self.msg = QMessageBox()
+        self.msg.setWindowTitle("Error!")
+        self.msg.setText("At least one checkbox must be selected.")
 
         # Layout
         self.layout.addWidget(self.lineEdit, 0, 0, 1, 3)
@@ -90,5 +97,13 @@ class Window(QMainWindow):
         self.label.setText('Length: ' + str(value))
 
     # Generate Password
-    def setLineEditText(self, string):
-        self.lineEdit.setText(string)
+    def setLineEditText(self):
+        # Ensure at least one box is checked
+        if (self.lowercaseCheckBox.isChecked() is False and self.uppercaseCheckBox.isChecked() is False and self.symbolCheckBox.isChecked() is False):
+            error = self.msg.exec_()
+
+        else:
+            password = random_password(self.lowercaseCheckBox.isChecked(), self.uppercaseCheckBox.isChecked(), self.symbolCheckBox.isChecked(), self.lengthSlider.value())
+            self.lineEdit.setText(password)
+
+ 
